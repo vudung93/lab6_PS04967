@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 2, 2017 3:55:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="bean.Disciplinedetails" table="Disciplinedetails" schema="dbo" catalog="SOF302" optimistic-lock="version">
+        <id name="disdtId" type="int">
+            <column name="DisdtID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="discipline" class="bean.Discipline" fetch="select">
+            <column name="DisID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employee" class="bean.Employee" fetch="select">
+            <column name="EmployeeID" not-null="true" />
+        </many-to-one>
+        <property name="reason" type="string">
+            <column name="Reason" />
+        </property>
+        <property name="date" type="date">
+            <column name="Date" length="16" />
+        </property>
+        <property name="formality" type="string">
+            <column name="Formality" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 2, 2017 3:55:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="bean.Discipline" table="Discipline" schema="dbo" catalog="SOF302" optimistic-lock="version">
+        <id name="disId" type="int">
+            <column name="DisID" />
+            <generator class="identity" />
+        </id>
+        <property name="disName" type="string">
+            <column name="DisName" />
+        </property>
+        <set name="disciplinedetailses" table="Disciplinedetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DisID" not-null="true" />
+            </key>
+            <one-to-many class="bean.Disciplinedetails" />
+        </set>
+    </class>
+</hibernate-mapping>

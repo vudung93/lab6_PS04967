@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 2, 2017 3:55:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="bean.Employee" table="Employee" schema="dbo" catalog="SOF302" optimistic-lock="version">
+        <id name="employeeId" type="int">
+            <column name="EmployeeID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="department" class="bean.Department" fetch="select">
+            <column name="DepID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" />
+        </property>
+        <property name="gender" type="java.lang.Boolean">
+            <column name="Gender" />
+        </property>
+        <property name="birthday" type="date">
+            <column name="Birthday" length="16" />
+        </property>
+        <property name="photo" type="string">
+            <column name="Photo" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" />
+        </property>
+        <property name="salary" type="java.lang.Double">
+            <column name="Salary" precision="53" scale="0" />
+        </property>
+        <property name="notes" type="string">
+            <column name="Notes" />
+        </property>
+        
+        <property name="address" type="string">
+            <column name="Address" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" />
+        </property>
+        
+        <set name="rewardetailses" table="Rewardetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EmployeeID" not-null="true" />
+            </key>
+            <one-to-many class="bean.Rewardetails" />
+        </set>
+        <set name="disciplinedetailses" table="Disciplinedetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EmployeeID" not-null="true" />
+            </key>
+            <one-to-many class="bean.Disciplinedetails" />
+        </set>
+    </class>
+</hibernate-mapping>
