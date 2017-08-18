@@ -42,9 +42,9 @@ Contributor(s):
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost\SOF302:1433;databaseName=SOF302</property>
-    <property name="hibernate.connection.username">sa</property>
-    <property name="hibernate.connection.password">123</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://projectjava5.database.windows.net:1433;databaseName=SOF302</property>
+    <property name="hibernate.connection.username">dung@projectjava5</property>
+    <property name="hibernate.connection.password">Conyeume93</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.enable_lazy_load_no_trans">true</property>
